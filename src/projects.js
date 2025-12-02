@@ -39,6 +39,34 @@ export const projects = [
     false
   ),
   /*   new Project(
+    "PulmoVision",
+    "https://github.com/danMoksh/pulmoVision",
+    "Developed a coordinated drone and ground-rover system (Jetson Nano) for FOD detection, featuring a custom ROS navigation stack with EKF sensor fusion and optimized computer vision.",
+    [
+      "Python",
+      "YOLOv11",
+      "RT-DETR",
+      "Weighted Box Fusion",
+      "UAVs",
+      "Jetson Nano",
+      "ROS",
+      "Sensor Fusion",
+      "PID Control",
+      "STM32",
+      "RestAPI",
+      "SocketIO / WebSockets",
+      "Multithreading",
+      "MAVLink",
+      "I2C / UART / Serial",
+      "3d Printing",
+      "Microcontrollers",
+      "CUDA / NVIDIA Jetpack",
+      "SLAM",
+    ],
+    true,
+    false
+  ), */
+  /*   new Project(
     "Fir",
     "https://codepen.io/moksh/pen/dyYyWGx",
     "A genetic algorithm written from scratch to simulate the behavior of fireflies. Hobby project from 10th grade.",
