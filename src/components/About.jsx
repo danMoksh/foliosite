@@ -69,7 +69,7 @@ export default function About() {
             <path d="M12 18v-6" />
             <path d="m9 15 3 3 3-3" />
           </svg>
-          View/Download Resume
+          View Resume
         </a>
 
         <a

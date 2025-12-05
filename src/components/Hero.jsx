@@ -146,8 +146,8 @@ export default function Hero() {
       <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
         <ScanlineButton href="#socials">Connect</ScanlineButton>
         <div className="flex gap-4">
-          <BracketButton href="#projects">See My Work</BracketButton>
-          <BracketButton href="#skills">My Skills</BracketButton>
+          <BracketButton href="#projects">Work</BracketButton>
+          <BracketButton href="#skills">Skills</BracketButton>
         </div>
       </div>
     </section>
