@@ -5,8 +5,8 @@
 /* Monochrome TUI Theme Variables */
 body {
     /* font */
-    --font: 'Dank Mono', 'JetBrains Mono', monospace;
-    --code-font: 'Dank Mono', 'JetBrains Mono', monospace;
+    --font: 'Jetbrains Mono', monospace;
+    --code-font: 'Jetbrains Mono', monospace;
     font-weight: 300;
     letter-spacing: -0.05ch;
 

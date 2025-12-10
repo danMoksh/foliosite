@@ -1,18 +1,3 @@
-/**
- * ============================================================================
- * APP.JSX - Main Application Structure
- * ============================================================================
- *
- * This file controls the layout and order of sections on your homepage.
- *
- * To reorder sections:
- * - Find the <CollapsibleSection> blocks (around line 150)
- * - Cut and paste them in the order you want
- *
- * See CUSTOMIZATION.md for more details
- * ============================================================================
- */
-
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
