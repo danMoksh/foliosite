@@ -32,8 +32,8 @@ const TuiBox = ({ children, className = '', title, animate = true, isActive: con
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // Trigger popup when 50% of card is visible
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+          // Trigger popup when 20% of card is visible
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
             if (!hasAnimatedRef.current) {
               setInternalIsActive(true);
               hasAnimatedRef.current = true;
@@ -47,7 +47,7 @@ const TuiBox = ({ children, className = '', title, animate = true, isActive: con
         });
       },
       {
-        threshold: [0.5], // Trigger when 50% visible
+        threshold: [0.2], // Trigger when 20% visible
         rootMargin: '0px'
       }
     );
