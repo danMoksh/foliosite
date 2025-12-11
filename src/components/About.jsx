@@ -1,17 +1,3 @@
-/**
- * ============================================================================
- * ABOUT.JSX - About Me Section
- * ============================================================================
- *
- * What to change:
- * - Bio text: The <p> paragraphs (around line 10)
- * - Blog/Medium/Substack links: The <a> tags (around line 20)
- *
- * To add a Download Resume button:
- * - See CUSTOMIZATION.md Section 4 for instructions
- * ============================================================================
- */
-
 import TuiBox from "./TuiBox";
 
 export default function About() {
@@ -45,7 +31,7 @@ export default function About() {
         </a> */}
 
         <a
-          href="/resume"
+          href="/resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="px-4 py-3 bg-bg-3 hover:bg-hover hover:text-accent-1 hover:border-accent-1 transition-all duration-300 flex items-center justify-center border border-border-light rounded group"
