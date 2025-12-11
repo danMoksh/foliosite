@@ -13,75 +13,128 @@ export const projects = [
   new Project(
     "Vision Edge",
     "https://github.com/danMoksh/visionEdge",
-    "Developed a coordinated drone and ground-rover system (Jetson Nano) for FOD detection, featuring a custom ROS navigation stack with EKF sensor fusion and optimized computer vision.",
+    "Engineered an autonomous multi-agent system (Drone & Rover) for FOD detection at Gwalior Air Force Station. Features a Safety-Critical Weighted Box Fusion ensemble (YOLOv11, RT-DETR) on Jetson Nano with CUDA acceleration, Flat Earth Projection for geolocation, and a MAVLink-controlled UGV utilizing TSP algorithms for optimized debris retrieval.",
     [
       "Python",
-      "YOLOv11",
+      "C++",
+      "YOLOv8/v11",
       "RT-DETR",
       "Weighted Box Fusion",
-      "UAVs",
-      "Jetson Nano",
+      "CUDA / NVIDIA Jetpack",
       "ROS",
-      "Sensor Fusion",
-      "PID Control",
-      "STM32",
-      "RestAPI",
+      "Sensor Fusion (EKF)",
+      "SLAM",
+      "MAVLink",
       "SocketIO / WebSockets",
       "Multithreading",
-      "MAVLink",
+      "Jetson Nano",
+      "STM32",
+      "PID Control",
       "I2C / UART / Serial",
-      "3d Printing",
+      "UAVs",
       "Microcontrollers",
-      "CUDA / NVIDIA Jetpack",
-      "SLAM",
+      "3d Printing",
     ],
     true,
     false
   ),
-  /*   new Project(
-    "PulmoVision",
-    "https://github.com/danMoksh/pulmoVision",
-    "Developed a coordinated drone and ground-rover system (Jetson Nano) for FOD detection, featuring a custom ROS navigation stack with EKF sensor fusion and optimized computer vision.",
+  new Project(
+    "Smart Donation Box",
+    "https://github.com/danMoksh/SmartDonationBox",
+    "Architected a commissioned AI-IoT prototype for Ethara AI to automate currency sorting. Features a server-side Cascade R-CNN pipeline trained on synthetic data (Albumentations) to recognize crumpled notes, synchronized with an Arduino-controlled aerodynamic separation mechanism (2+2 Servos, Drone Motor & ESC, 2 Vibration Motors) for real-time singulation.",
     [
       "Python",
-      "YOLOv11",
-      "RT-DETR",
-      "Weighted Box Fusion",
-      "UAVs",
-      "Jetson Nano",
-      "ROS",
-      "Sensor Fusion",
-      "PID Control",
-      "STM32",
-      "RestAPI",
-      "SocketIO / WebSockets",
-      "Multithreading",
-      "MAVLink",
-      "I2C / UART / Serial",
-      "3d Printing",
-      "Microcontrollers",
-      "CUDA / NVIDIA Jetpack",
-      "SLAM",
+      "C++ (Embedded)",
+      "PyTorch",
+      "OpenCV",
+      "Cascade R-CNN",
+      "Synthetic Data / Albumentations",
+      "Arduino Mega",
+      "IoT",
+      "OHEM (Hard Negative Mining)",
+      "Servo Control",
+      "System Integration",
+      "Object Detection",
+      "Electronics",
     ],
-    true,
+    false,
     false
-  ), */
-  /*   new Project(
-    "Fir",
-    "https://codepen.io/moksh/pen/dyYyWGx",
-    "A genetic algorithm written from scratch to simulate the behavior of fireflies. Hobby project from 10th grade.",
-    ["JavaScript", "Genetic Algorithms", "Web Development"],
+  ),
+  new Project(
+    "Pulmo Vision",
+    "https://github.com/danMoksh/PulmoVision",
+    "Deployed a DenseNet121-CNN architecture using TorchXRayVision for multi-label pulmonary disease classification. Engineered a robust preprocessing pipeline to standardize X-ray inputs and optimized model convergence on imbalanced medical datasets using BCEWithLogitsLoss and Global Average Pooling.",
+    [
+      "Python",
+      "PyTorch",
+      "DenseNet121",
+      "CNN",
+      "TorchXRayVision",
+      "Medical AI",
+      "Transfer Learning",
+      "Computer Vision",
+      "Deep Learning",
+      "Data Preprocessing",
+      "Pandas / NumPy",
+    ],
     false,
-    true
-  ), */
-  /*   new Project(
-    "game of life",
-    "https://github.io//",
-    "A simple implementation of Conway's Game of Life in C/WASM with a web interface and custom rules. Hobby project from 11th grade.",
-    ["C", "WASM", "Web Development", "Algorithms", "Data Structures"],
+    false
+  ),
+  new Project(
+    "AnatomyViewerAR",
+    "https://github.com/danMoksh/AnatomyViewerAR",
+    "Developed an interactive Augmented Reality education platform using Unity 3D and Vuforia Engine. Implemented marker-based tracking with a custom local database (AR_Demo.dat) to render high-fidelity anatomical models, featuring a touch-optimized interaction system (Scale/Rotate/Translate) and custom shaders for realistic rendering on mobile devices.",
+    [
+      "C#",
+      "Unity 3D",
+      "Vuforia Engine",
+      "Augmented Reality",
+      "ShaderLab", // Important: 33% of your repo is shaders
+      "3D Modeling",
+      "Android",
+      "Game Development",
+      "Image Processing",
+      "UI/UX Design",
+    ],
     false,
-    true
-  ), */
+    false
+  ),
+  new Project(
+    "ShooterVR",
+    "https://github.com/danMoksh/ShooterVR",
+    "Developed an immersive VR First-Person Shooter for Google Cardboard using Unity 3D and the Google VR SDK. Engineered a gaze-based interaction system with Raycast ballistics for instantaneous hit detection, optimized for mobile hardware with low-latency head tracking and 3D spatial audio.",
+    [
+      "C#",
+      "Unity 3D",
+      "Google VR SDK",
+      "Virtual Reality (VR)",
+      "Raycasting / Physics",
+      "ShaderLab",
+      "3D Audio",
+      "Android",
+      "Game Development",
+      "Mobile Optimization",
+    ],
+    false,
+    false
+  ),
+  new Project(
+    "Disable Error and Warning Squiggles",
+    "https://github.com/danMoksh/disable-error-and-warning-squiggles",
+    "Engineered a VS Code Extension to improve developer focus by programmatically toggling error diagnostics. Leveraged the VS Code API to dynamically manipulate `workbench.colorCustomizations` for all languages, providing a distraction-free environment for pseudocode drafting and presentations.",
+    [
+      "TypeScript",
+      "JavaScript",
+      "VS Code API",
+      "Extension Development",
+      "JSON",
+      "Node.js",
+      "Developer Tools",
+      "Productivity",
+    ],
+    false,
+    false
+  ),
 ];
 
 export const teststack = {
@@ -99,7 +152,6 @@ export const teststack = {
     // backend
     "FastAPI",
     "Flask",
-    "Express",
     "Node.js",
     "SQL",
     "MongoDB",
@@ -157,7 +209,28 @@ class Experience {
   }
 }
 
-export const experiences = [];
+export const experiences = [
+  new Experience(
+    "Mobile Cafe, Jayendraganj",
+    "Systems Specialist",
+    [
+      "Performed advanced Android system modifications using Linux-based tools and ADB for bootloader unlocking, root privilege escalation, and custom ROM deployment.",
+      "Provided comprehensive technical support including hardware diagnostics and system recovery, analyzing OS-level logs to troubleshoot boot failures.",
+      "Managed secure data backup and migration protocols during firmware upgrades, ensuring data integrity while assisting clients with digital documentation.",
+    ],
+    [
+      "Java",
+      "Virtual Machines",
+      "Embedded Systems",
+      "ADB",
+      "AOSP",
+      "Android Rooting / Debugging",
+      "Unbricking / EDL Mode",
+      "Troubleshooting",
+    ],
+    "2022 - 2024"
+  ),
+];
 
 class Achievement {
   constructor(title, description, year) {
