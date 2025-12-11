@@ -14,7 +14,7 @@ export default function ChatMessages({ messages, isTyping, onPromptClick }) {
   }, [messages, isTyping]);
 
   return (
-    <div className="flex-1 overflow-y-auto p-4 scroll-smooth">
+    <div className="flex-1 overflow-y-auto p-4 scroll-smooth overscroll-y-contain" data-lenis-prevent>
       {messages.length === 0 ? (
         <ChatPrompts onPromptClick={onPromptClick} />
       ) : (
