@@ -34,6 +34,7 @@ src/data/
 src/components/Sections.jsx
 
 .history
-
 SETUP.md
 .vercel
+
+src/experiments
