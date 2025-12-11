@@ -27,6 +27,19 @@ const RevealOnScroll = ({ children }) => {
   );
 };
 
+const BlurReveal = ({ children, delay = 0 }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, filter: "blur(10px)" }}
+      whileInView={{ opacity: 1, filter: "blur(0px)" }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.7, ease: "easeOut", delay }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
 const CollapsibleSection = ({ id, title, children }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -38,7 +51,9 @@ const CollapsibleSection = ({ id, title, children }) => {
           className="flex items-center cursor-pointer mb-8"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <h2 className="text-2xl font-bold">{title}</h2>
+          <BlurReveal>
+            <h2 className="text-2xl font-bold">{title}</h2>
+          </BlurReveal>
           <motion.span
             className="ml-2"
             animate={{ rotate: isOpen ? 90 : 0 }}
@@ -147,7 +162,9 @@ export default function App() {
 
           <section id="about" className="my-16 pt-16 -mt-16">
             <RevealOnScroll>
-              <h2 className="text-2xl font-bold mb-8">About Me</h2>
+              <BlurReveal>
+                <h2 className="text-2xl font-bold mb-8">About Me</h2>
+              </BlurReveal>
               <About />
             </RevealOnScroll>
           </section>
@@ -170,7 +187,9 @@ export default function App() {
 
           <section id="socials" className="mt-16 mb-0 pt-16 -mt-16">
             <RevealOnScroll>
-              <h2 className="text-2xl font-bold mb-8">Socials</h2>
+              <BlurReveal>
+                <h2 className="text-2xl font-bold mb-8">Socials</h2>
+              </BlurReveal>
               <Socials />
             </RevealOnScroll>
           </section>
