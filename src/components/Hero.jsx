@@ -140,7 +140,7 @@ export default function Hero() {
       <p className="text-text-3 mb-8 max-w-2xl">
         I am a programmer, modder, reverse engineer focused on backend and low
         level programming. I love tinkering with robotics, embedded systems and
-        AOSP.
+        AOSP. Fedora btw.
       </p>
 
       <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">

@@ -9,7 +9,7 @@ export default function About() {
         programming, full-stack, and robotics.
       </p>
       <p className="text-text-2 leading-relaxed">
-        I love chess and debate. Currently learning German to read Nietzsche's
+        I love chess and debates. Currently learning German to read Nietzsche's
         Beyond Good and Evil as it was written.
       </p>
 

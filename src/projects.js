@@ -13,13 +13,15 @@ export const projects = [
   new Project(
     "Vision Edge",
     "https://github.com/danMoksh/visionEdge",
-    "Engineered an autonomous multi-agent system (Drone & Rover) for FOD detection at Gwalior Air Force Station. Features a Safety-Critical Weighted Box Fusion ensemble (YOLOv11, RT-DETR) on Jetson Nano with CUDA acceleration, Flat Earth Projection for geolocation, and a MAVLink-controlled UGV utilizing TSP algorithms for optimized debris retrieval.",
+    "Engineered an autonomous multi-agent system (VTOL Drone & Rover) for FOD detection. Features a Safety-Critical Weighted Box Fusion ensemble (YOLOv8, YOLOv11, RT-DETR) processed on the Ground Server, and a MAVLink-controlled UGV utilizing TSP algorithms with a mechanical guide-rod sweeper for optimized debris retrieval.",
     [
       "Python",
       "C++",
       "YOLOv8/v11",
       "RT-DETR",
       "Weighted Box Fusion",
+      "ArduPilot",
+      "TSP Algorithms",
       "CUDA / NVIDIA Jetpack",
       "ROS",
       "Sensor Fusion (EKF)",
@@ -27,7 +29,7 @@ export const projects = [
       "MAVLink",
       "SocketIO / WebSockets",
       "Multithreading",
-      "Jetson Nano",
+      "Ground Control Station",
       "STM32",
       "PID Control",
       "I2C / UART / Serial",
@@ -41,7 +43,7 @@ export const projects = [
   new Project(
     "Smart Donation Box",
     "https://github.com/danMoksh/SmartDonationBox",
-    "Architected a commissioned AI-IoT prototype for Ethara AI to automate currency sorting. Features a server-side Cascade R-CNN pipeline trained on synthetic data (Albumentations) to recognize crumpled notes, synchronized with an Arduino-controlled aerodynamic separation mechanism (2+2 Servos, Drone Motor & ESC, 2 Vibration Motors) for real-time singulation.",
+    "Architected a commissioned AI-IoT prototype for Ethara AI to automate currency counting. Features a server-side Cascade R-CNN pipeline trained on synthetic data (Albumentations) to recognize crumpled notes, synchronized with an Arduino-controlled aerodynamic separation mechanism (2+2 Servos, Drone Motor & ESC, 2 Vibration Motors) for real-time singulation.",
     [
       "Python",
       "C++ (Embedded)",
@@ -81,7 +83,7 @@ export const projects = [
     false
   ),
   new Project(
-    "AnatomyViewerAR",
+    "Anatomy-Viewer-AR",
     "https://github.com/danMoksh/AnatomyViewerAR",
     "Developed an interactive Augmented Reality education platform using Unity 3D and Vuforia Engine. Implemented marker-based tracking with a custom local database (AR_Demo.dat) to render high-fidelity anatomical models, featuring a touch-optimized interaction system (Scale/Rotate/Translate) and custom shaders for realistic rendering on mobile devices.",
     [
@@ -100,7 +102,7 @@ export const projects = [
     false
   ),
   new Project(
-    "ShooterVR",
+    "Shooter-VR",
     "https://github.com/danMoksh/ShooterVR",
     "Developed an immersive VR First-Person Shooter for Google Cardboard using Unity 3D and the Google VR SDK. Engineered a gaze-based interaction system with Raycast ballistics for instantaneous hit detection, optimized for mobile hardware with low-latency head tracking and 3D spatial audio.",
     [
