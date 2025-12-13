@@ -158,7 +158,45 @@ const BackToTopButton = () => {
   );
 };
 
+import BlogSection from "./components/BlogSection";
+
+// ... previous imports ...
+
 export default function App() {
+  const [currentHash, setCurrentHash] = useState(window.location.hash);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash);
+      window.scrollTo(0, 0);
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
+  // Handle initial hash on mount
+  useEffect(() => {
+    if (window.location.hash) {
+      setCurrentHash(window.location.hash);
+    }
+  }, []);
+
+  const showBlog = currentHash === "#blog";
+
+  if (showBlog) {
+    return (
+      <ChatProvider>
+         <div className="bg-bg-4 text-text-1 min-h-screen font-mono selection:bg-accent-2 selection:text-bg-4">
+            <BlogSection onExit={() => {
+               window.location.hash = "";
+            }} />
+            <Chat />
+         </div>
+      </ChatProvider>
+    );
+  }
+
   return (
     <ChatProvider>
       <div className="bg-bg-4 text-text-1 min-h-screen font-mono selection:bg-accent-2 selection:text-bg-4">

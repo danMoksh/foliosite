@@ -1,6 +1,6 @@
 import TuiBox from "./TuiBox";
 
-export default function About() {
+export default function About({ onNavigateToBlog }) {
   return (
     <TuiBox className="space-y-6">
       <p className="text-text-2 leading-relaxed">
@@ -59,10 +59,13 @@ export default function About() {
         </a>
 
         <a
-          href=""
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-4 py-3 bg-bg-3 hover:bg-hover hover:text-accent-1 hover:border-accent-1 transition-all duration-300 flex items-center justify-center border border-border-light rounded group"
+          href="#blog"
+          onClick={(e) => {
+             e.preventDefault();
+             e.stopPropagation();
+             window.location.hash = "#blog";
+          }}
+          className="px-4 py-3 bg-bg-3 hover:bg-hover hover:text-accent-1 hover:border-accent-1 transition-all duration-300 flex items-center justify-center border border-border-light rounded group cursor-pointer"
         >
           <svg
             className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform"
@@ -72,7 +75,7 @@ export default function About() {
             <path d="M5 3a1 1 0 000 2c5.523 0 10 4.477 10 10a1 1 0 102 0C17 8.373 11.627 3 5 3z"></path>
             <path d="M4 9a1 1 0 011-1 7 7 0 017 7 1 1 0 11-2 0 5 5 0 00-5-5 1 1 0 01-1-1z"></path>
           </svg>
-          Visit My Blog
+          visit my blog
         </a>
       </div>
     </TuiBox>
