@@ -16,7 +16,7 @@ const TuiBox = ({ children, className = '', title, animate = true, isActive: con
   // Detect if device is mobile/tablet
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.matchMedia('(max-width: 1024px)').matches);
+      setIsMobile(window.matchMedia('(max-width: 768px)').matches);
     };
     
     checkMobile();
@@ -33,16 +33,11 @@ const TuiBox = ({ children, className = '', title, animate = true, isActive: con
       (entries) => {
         entries.forEach((entry) => {
           // Trigger popup when 20% of card is visible
+          // Toggle active state based on visibility
           if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
-            if (!hasAnimatedRef.current) {
-              setInternalIsActive(true);
-              hasAnimatedRef.current = true;
-              
-              // Auto-dismiss after 2 seconds to avoid overwhelming the UI
-              setTimeout(() => {
-                setInternalIsActive(false);
-              }, 2000);
-            }
+             setInternalIsActive(true);
+          } else {
+             setInternalIsActive(false);
           }
         });
       },
