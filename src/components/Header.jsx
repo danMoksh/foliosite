@@ -31,7 +31,9 @@ const NavItem = ({ name, href, isMobile, onClick }) => {
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" ? window.innerWidth < 768 : false
+  );
   const [isGlitching, setIsGlitching] = useState(false);
   const [glitchTimeout, setGlitchTimeout] = useState(null);
 
