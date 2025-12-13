@@ -107,14 +107,20 @@ export default function Hero() {
     };
   }, []);
 
-  return (
-    <section className="py-20">
-      <div className="overflow-hidden mb-8">
-        <pre
-          ref={preRef}
-          className="text-accent-1 font-mono leading-none text-[0.35rem] xs:text-[0.4rem] sm:text-[0.5rem] md:text-[0.6rem] lg:text-[0.7rem] whitespace-pre select-none"
-        >
-          {`##     ##  #######  ##    ##  ######  ##     ## 
+  const [isMobile, setIsMobile] = React.useState(
+    typeof window !== "undefined" ? window.matchMedia("(max-width: 768px)").matches : false
+  );
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+    };
+
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const asciiArt = `##     ##  #######  ##    ##  ######  ##     ## 
 ###   ### ##     ## ##   ##  ##    ## ##     ## 
 #### #### ##     ## ##  ##   ##       ##     ## 
 ## ### ## ##     ## #####     ######  ######### 
@@ -128,13 +134,22 @@ export default function Hero() {
 ##     ## ##     ## ## ## ## ##     ## ##     ##    ##     ##     ##    ##     ## 
 ##     ## ######### ##  #### ##     ## ##     ##    ##     ##     ##    ######### 
 ##     ## ##     ## ##   ### ##     ## ##     ##    ##     ##     ##    ##     ## 
-########  ##     ## ##    ## ########   #######     ##    ####    ##    ##     ##`
-            .split("")
-            .map((char, index) => (
-              <span key={index} className={char === "#" ? "hash-glow" : ""}>
-                {char}
-              </span>
-            ))}
+########  ##     ## ##    ## ########   #######     ##    ####    ##    ##     ##`;
+
+  return (
+    <section className="py-20">
+      <div className="overflow-hidden mb-8">
+        <pre
+          ref={preRef}
+          className="text-accent-1 font-mono leading-none text-[0.35rem] xs:text-[0.4rem] sm:text-[0.5rem] md:text-[0.6rem] lg:text-[0.7rem] whitespace-pre select-none"
+        >
+          {isMobile
+            ? asciiArt
+            : asciiArt.split("").map((char, index) => (
+                <span key={index} className={char === "#" ? "hash-glow" : ""}>
+                  {char}
+                </span>
+              ))}
         </pre>
       </div>
       <p className="text-text-3 mb-8 max-w-2xl">

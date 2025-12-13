@@ -14,6 +14,18 @@ import Footer from "./components/Footer";
 import { ChatProvider } from "./contexts/ChatContext";
 import Chat from "./components/chatbot/Chat";
 
+const SimpleReveal = ({ children }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
 const RevealOnScroll = ({ children }) => {
   return (
     <motion.div
@@ -155,9 +167,9 @@ export default function App() {
 
         <div className="container mx-auto px-4 py-8 pt-24 max-w-4xl">
           <div id="hero">
-            <RevealOnScroll>
+            <SimpleReveal>
               <Hero />
-            </RevealOnScroll>
+            </SimpleReveal>
           </div>
 
           <section id="about" className="my-16 pt-16 -mt-16">
