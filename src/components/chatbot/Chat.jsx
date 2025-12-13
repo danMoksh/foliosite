@@ -89,7 +89,7 @@ export default function Chat() {
           {isOpen && (
             <motion.div
               initial={{ height: 0 }}
-              animate={{ height: 400 }}
+              animate={{ height: "min(400px, 75dvh)" }}
               exit={{ height: 0 }}
               transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
               className="overflow-hidden"
