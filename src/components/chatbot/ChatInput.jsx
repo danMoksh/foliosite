@@ -12,22 +12,22 @@ export default function ChatInput({ onSend, onClear, isLoading }) {
   };
 
   return (
-    <div className="border-t border-border p-4">
+    <div className="border-t border-border p-4 flex-none">
       <form onSubmit={handleSubmit} className="flex gap-2">
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Ask me anything..."
+          placeholder="..."
           disabled={isLoading}
-          className="flex-1 px-3 py-2 bg-bg-3 border border-border text-text-1 placeholder-text-4 focus:outline-none focus:border-accent-1 transition-colors disabled:opacity-50"
+          className="flex-1 min-w-0 px-3 py-2 bg-bg-3 border border-border text-text-1 placeholder-text-4 focus:outline-none focus:border-accent-1 transition-colors disabled:opacity-50"
         />
         <button
           type="submit"
           disabled={isLoading || !input.trim()}
           className="px-4 py-2 bg-accent-1 text-bg-1 hover:bg-accent-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-bold"
         >
-          Send
+          send
         </button>
       </form>
       {onClear && (
@@ -35,7 +35,7 @@ export default function ChatInput({ onSend, onClear, isLoading }) {
           onClick={onClear}
           className="mt-2 text-xs text-text-4 hover:text-accent-1 transition-colors"
         >
-          Clear chat
+          clear chat
         </button>
       )}
     </div>
