@@ -108,7 +108,9 @@ export default function Hero() {
   }, []);
 
   const [isMobile, setIsMobile] = React.useState(
-    typeof window !== "undefined" ? window.matchMedia("(max-width: 768px)").matches : false
+    typeof window !== "undefined"
+      ? window.matchMedia("(max-width: 768px)").matches
+      : false
   );
 
   React.useEffect(() => {
@@ -161,7 +163,7 @@ export default function Hero() {
       <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
         <ScanlineButton href="#socials">Connect</ScanlineButton>
         <div className="flex gap-4">
-          <BracketButton href="#projects">Work</BracketButton>
+          <BracketButton href="#projects">Projects</BracketButton>
           <BracketButton href="#skills">Skills</BracketButton>
         </div>
       </div>
