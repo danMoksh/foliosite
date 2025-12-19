@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import Header from "./components/Header";
-import SmoothScroll from "./components/SmoothScroll";
+
 import Hero from "./components/Hero";
 import Socials from "./components/Socials";
 import Skills from "./components/Skills";
@@ -200,7 +200,7 @@ export default function App() {
   return (
     <ChatProvider>
       <div className="bg-bg-4 text-text-1 min-h-screen font-mono selection:bg-accent-2 selection:text-bg-4">
-        <SmoothScroll />
+
         <Header />
 
         <div className="container mx-auto px-4 py-8 pt-24 max-w-4xl">
