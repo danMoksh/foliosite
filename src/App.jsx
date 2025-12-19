@@ -162,13 +162,20 @@ import BlogSection from "./components/BlogSection";
 
 // ... previous imports ...
 
+import { useScrollSpy } from "./hooks/useScrollSpy";
+
 export default function App() {
   const [currentHash, setCurrentHash] = useState(window.location.hash);
+  
+  // Initialize ScrollSpy
+  useScrollSpy(["hero", "about", "experience", "projects", "skills", "socials"]);
 
   useEffect(() => {
     const handleHashChange = () => {
       setCurrentHash(window.location.hash);
-      window.scrollTo(0, 0);
+      if (window.location.hash === "#blog") {
+        window.scrollTo(0, 0);
+      }
     };
 
     window.addEventListener("hashchange", handleHashChange);
