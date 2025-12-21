@@ -104,7 +104,7 @@ export const projects = [
   new Project(
     "Shooter-VR",
     "https://github.com/danMoksh/ShooterVR",
-    "Developed an immersive VR First-Person Shooter for Google Cardboard using Unity 3D and the Google VR SDK. Engineered a gaze-based interaction system with Raycast ballistics for instantaneous hit detection, optimized for mobile hardware with low-latency head tracking and 3D spatial audio.",
+    "Developed an immersive VR First-Person Shooter for Google Cardboard using Unity 3D and the Google VR SDK. Engineered a gaze-based interaction system with Raycast for instantaneous hit detection, optimized for mobile hardware with low-latency head tracking and 3D spatial audio.",
     [
       "C#",
       "Unity 3D",
