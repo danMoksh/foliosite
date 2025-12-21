@@ -140,54 +140,24 @@ export const projects = [
 ];
 
 export const teststack = {
-  languages: [
-    "Embedded C",
-    "Hex",
-    "Python",
-    "Java",
-    "JavaScript",
-    "TypeScript",
-    "Latex",
-    "Markdown",
-  ],
+  languages: ["Embedded C", "Python", "Java", "JavaScript", "TypeScript"],
   technologies: [
     // backend
-    "FastAPI",
     "Flask",
-    "Node.js",
     "SQL",
     "MongoDB",
     // frontend/Full-stack
     "React",
     "Tailwind",
     "Vite",
-    "Vercel",
-    "Mermaid.js",
     // robotics
     "Robot Operating System",
-    "OpenCV",
-    "Jupyter",
-    "Gradle",
-    "QEMU",
     // design
     "Figma",
-    "Canva",
   ],
-  tools: [
-    "Linux/UNIX",
-    "Git",
-    "GDB",
-    "Make/CMake",
-    "Docker",
-    "Jetson Nano",
-    "Raspberry Pi",
-    "tmux",
-    "nvim",
-    "ssh",
-  ],
+  tools: ["Linux/UNIX", "Git", "GDB", "Docker", "Jetson Nano", "Arduino"],
   concepts: [
     "Systems Programming",
-    "Virtual Machines",
     "Data Structures",
     "3D Printing",
     "ML/DL",
