@@ -31,9 +31,7 @@ const DitherShadowButton = ({ href, children, target, rel, icon }) => {
       "
       >
         {icon && (
-          <span className="group-hover:scale-110 transition-transform">
-            {icon}
-          </span>
+          <span className="group-hover:transition-transform">{icon}</span>
         )}
         <span>{children}</span>
       </div>
