@@ -118,7 +118,7 @@ body {
   background-color: var(--bg-4);
   color: var(--text-1);
   font-family: 'JetBrains Mono', monospace;
-  text-transform: lowercase;
+  text-transform: normal-case;
   overflow-x: hidden;
 }
 
@@ -330,3 +330,59 @@ html {
 }
 
 
+
+/* Gooey Button Effect */
+.btn-gooey {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background: transparent;
+}
+
+.btn-gooey .blobs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.btn-gooey .blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  border-radius: 40%;
+  background: var(--accent-1);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.45s ease;
+}
+
+.btn-gooey:hover .blob {
+    transform: translate(-50%, -50%) scale(1.4);
+}
+
+/* Unique blob movements for variation if we had multiple, 
+   but here we just use one big expanding blob for a "liquid fill" effect 
+   that looks gooey due to the filter */
+
+.btn-gooey:hover {
+  color: var(--bg-1);
+}
+
+.gooey-filter-container {
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+/* Dither Pattern Shadow */
+.dither-shadow-bg {
+    background-image: radial-gradient(var(--accent-1) 1px, transparent 1px);
+    background-size: 4px 4px;
+    opacity: 0.5;
+}

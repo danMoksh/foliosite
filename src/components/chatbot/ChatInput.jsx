@@ -27,7 +27,7 @@ export default function ChatInput({ onSend, onClear, isLoading }) {
           disabled={isLoading || !input.trim()}
           className="px-4 py-2 bg-accent-1 text-bg-1 hover:bg-accent-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-bold"
         >
-          send
+          Send
         </button>
       </form>
       {onClear && (
@@ -35,7 +35,7 @@ export default function ChatInput({ onSend, onClear, isLoading }) {
           onClick={onClear}
           className="mt-2 text-xs text-text-4 hover:text-accent-1 transition-colors"
         >
-          clear chat
+          Clear chat
         </button>
       )}
     </div>

@@ -1,9 +1,9 @@
 export default function ChatPrompts({ onPromptClick }) {
   const prompts = [
-    "tell me about your journey into technology.",
-    "what has been your toughest engineering challenge so far?",
-    "how do you approach learning complex new systems?",
-    "what unique value do you bring to an engineering team?",
+    "Tell me about your journey into technology.",
+    "What has been your toughest engineering challenge so far?",
+    "How do you approach learning complex new systems?",
+    "What unique value do you bring to an engineering team?",
   ];
 
   return (
