@@ -30,33 +30,7 @@ export default function About({ onNavigateToBlog }) {
           Read on Medium
         </a> */}
 
-        <a
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-4 py-3 bg-bg-3 hover:bg-hover hover:text-accent-1 hover:border-accent-1 transition-all duration-300 flex items-center justify-center border border-border-light rounded group"
-        >
-          <svg
-            className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform"
-            viewBox="0 0 24 24"
-            fill="none" // CHANGED: Set fill to none for outline style
-            stroke="currentColor" // ADDED: Use stroke for the lines
-            strokeWidth="2" // ADDED: Thickness of the lines
-            strokeLinecap="round" // ADDED: smooths line ends
-            strokeLinejoin="round" // ADDED: smooths corners
-          >
-            {/* The File Shape */}
-            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
 
-            {/* The Folded Corner */}
-            <polyline points="14 2 14 8 20 8" />
-
-            {/* The Downward Arrow */}
-            <path d="M12 18v-6" />
-            <path d="m9 15 3 3 3-3" />
-          </svg>
-          View Resume
-        </a>
 
         <a
           href="#blog"
