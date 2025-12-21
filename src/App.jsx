@@ -168,7 +168,7 @@ export default function App() {
   const [currentHash, setCurrentHash] = useState(window.location.hash);
   
   // Initialize ScrollSpy
-  useScrollSpy(["hero", "about", "experience", "projects", "skills", "socials"]);
+  useScrollSpy(["main", "about", "experience", "projects", "skills", "socials"]);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -211,7 +211,7 @@ export default function App() {
         <Header />
 
         <div className="container mx-auto px-4 py-8 pt-24 max-w-4xl">
-          <div id="hero">
+          <div id="main">
             <SimpleReveal>
               <Hero />
             </SimpleReveal>

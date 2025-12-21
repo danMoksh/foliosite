@@ -1,34 +1,42 @@
 import React from "react";
 
-const ScanlineButton = ({ href, children }) => {
+const DitherShadowButton = ({ href, children, target, rel, icon }) => {
   return (
     <a
       href={href}
-      className="px-6 py-3 border border-accent-1 text-accent-1 font-bold tracking-wider btn-scanline transition-colors"
+      target={target}
+      rel={rel}
+      className="relative inline-block group cursor-pointer no-underline"
+      style={{
+        /* Ensure the container is large enough for the shadow */
+        marginRight: "8px",
+        marginBottom: "8px",
+      }}
     >
-      {children}
-    </a>
-  );
-};
+      {/* The Shadow (Stationary, Dithered) */}
+      <div className="absolute top-2 left-2 w-full h-full border border-accent-1 dither-shadow-bg z-0 transition-transform duration-200"></div>
 
-const BracketButton = ({ href, children }) => {
-  return (
-    <a
-      href={href}
-      className="px-6 py-3 text-text-1 font-medium btn-bracket hover:text-accent-1 transition-colors"
-    >
-      {children}
-    </a>
-  );
-};
-
-const UnderlineButton = ({ href, children }) => {
-  return (
-    <a
-      href={href}
-      className="px-6 py-3 text-text-2 font-medium btn-underline hover:text-accent-1 transition-colors"
-    >
-      {children}
+      {/* The Button (Moves) */}
+      <div
+        className="
+        relative z-10 
+        bg-bg-1 
+        border border-accent-1 
+        px-6 py-3 
+        font-mono font-bold tracking-wider text-accent-1
+        flex items-center gap-2
+        transition-transform duration-150 ease-out
+        group-active:translate-x-2 group-active:translate-y-2
+        group-hover:text-text-1 group-hover:bg-accent-1/10
+      "
+      >
+        {icon && (
+          <span className="group-hover:scale-110 transition-transform">
+            {icon}
+          </span>
+        )}
+        <span>{children}</span>
+      </div>
     </a>
   );
 };
@@ -161,10 +169,31 @@ export default function Hero() {
       </p>
 
       <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
-        <ScanlineButton href="#socials">Connect</ScanlineButton>
+        <DitherShadowButton href="#socials">connect</DitherShadowButton>
         <div className="flex gap-4">
-          <BracketButton href="#projects">Projects</BracketButton>
-          <BracketButton href="#skills">Skills</BracketButton>
+          <DitherShadowButton
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            icon={
+              <svg
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                <polyline points="14 2 14 8 20 8" />
+                <path d="M12 18v-6" />
+                <path d="m9 15 3 3 3-3" />
+              </svg>
+            }
+          >
+            resume
+          </DitherShadowButton>
         </div>
       </div>
     </section>
