@@ -189,10 +189,28 @@ export default function App() {
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
-  // Handle initial hash on mount
+  // Handle initial path and hash on mount
   useEffect(() => {
-    if (window.location.hash) {
-      setCurrentHash(window.location.hash);
+    // Handle path-based routing (e.g. /about)
+    const path = window.location.pathname.replace('/', '');
+    const hash = window.location.hash.replace('#', '');
+    
+    // Priority: Hash > Path (except root)
+    const targetId = hash || (path === 'blog' ? 'blog' : path);
+
+    if (targetId) {
+      if (targetId === 'blog') {
+        window.scrollTo(0, 0); // Blog is a separate view
+        return;
+      }
+
+      // Allow a small delay for DOM to settle
+      setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
     }
   }, []);
 

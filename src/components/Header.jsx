@@ -10,7 +10,21 @@ const NavItem = ({ name, href, isMobile, onClick }) => {
       <a
         href={href}
         onMouseEnter={scramble}
-        onClick={onClick}
+        onClick={(e) => {
+          e.preventDefault();
+          onClick && onClick(); // Close mobile menu if exists
+          
+          // Smooth scroll to section
+          const targetId = href.replace('#', '');
+          const element = document.getElementById(targetId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+            
+            // Clean URL update
+            const path = targetId === 'main' ? '/' : `/${targetId}`;
+            window.history.pushState(null, null, path);
+          }
+        }}
         className={`
           ${
             isMobile
