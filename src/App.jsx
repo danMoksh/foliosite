@@ -250,7 +250,7 @@ export default function App() {
             <Skills />
           </CollapsibleSection>
 
-          <section id="#socials" className="mt-16 mb-0 pt-16 -mt-16">
+          <section id="socials" className="mt-16 mb-0 pt-16 -mt-16">
             <RevealOnScroll>
               <BlurReveal>
                 <h2 className="text-2xl font-bold mb-8">Socials</h2>

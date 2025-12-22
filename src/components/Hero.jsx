@@ -167,7 +167,7 @@ export default function Hero() {
       </p>
 
       <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
-        <DitherShadowButton href="#socials">connect</DitherShadowButton>
+        <DitherShadowButton href="socials">connect</DitherShadowButton>
         <div className="flex gap-4">
           <DitherShadowButton
             href="/resume.pdf"

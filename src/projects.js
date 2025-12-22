@@ -142,6 +142,8 @@ export const projects = [
 export const teststack = {
   languages: ["Embedded C", "Python", "Java", "JavaScript", "TypeScript"],
   technologies: [
+    // robotics
+    "Robot Operating System",
     // backend
     "Flask",
     "SQL",
@@ -150,8 +152,6 @@ export const teststack = {
     "React",
     "Tailwind",
     "Vite",
-    // robotics
-    "Robot Operating System",
     // design
     "Figma",
   ],
