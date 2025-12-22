@@ -137,20 +137,20 @@ const BackToTopButton = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 text-white flex items-center justify-center shadow-lg transition-all z-50"
+          className="fixed bottom-6 right-6 w-10 h-10 bg-transparent border border-accent-1 text-accent-1 flex items-center justify-center transition-all z-50 hover:bg-accent-1/10 hover:text-text-1 active:translate-y-0.5"
           aria-label="Back to top"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
-            viewBox="0 0 20 20"
-            fill="currentColor"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <path
-              fillRule="evenodd"
-              d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
-              clipRule="evenodd"
-            />
+            <path d="M18 15l-6-6-6 6" />
           </svg>
         </button>
       )}
@@ -228,7 +228,7 @@ export default function App() {
           <section id="about" className="my-16 pt-16 -mt-16">
             <RevealOnScroll>
               <BlurReveal>
-                <h2 className="text-2xl font-bold mb-8">About Me</h2>
+                <h2 className="text-2xl font-bold mb-8">about me</h2>
               </BlurReveal>
               <About />
             </RevealOnScroll>
@@ -237,23 +237,23 @@ export default function App() {
           {/*           <CollapsibleSection id="resumes" title="Resume">
             <ResumeSection />
           </CollapsibleSection> */}
-
-          <CollapsibleSection id="experience" title="Experience">
+          {/* Lower Case Aesthetic */}
+          <CollapsibleSection id="experience" title="experience">
             <Experience />
           </CollapsibleSection>
 
-          <CollapsibleSection id="projects" title="Projects">
+          <CollapsibleSection id="projects" title="projects">
             <Projects />
           </CollapsibleSection>
 
-          <CollapsibleSection id="skills" title="Tech Stack & Tools">
+          <CollapsibleSection id="skills" title="tech stack & tools">
             <Skills />
           </CollapsibleSection>
 
           <section id="socials" className="mt-16 mb-0 pt-16 -mt-16">
             <RevealOnScroll>
               <BlurReveal>
-                <h2 className="text-2xl font-bold mb-8">Socials</h2>
+                <h2 className="text-2xl font-bold mb-8">socials</h2>
               </BlurReveal>
               <Socials />
             </RevealOnScroll>
