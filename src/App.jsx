@@ -166,9 +166,16 @@ import { useScrollSpy } from "./hooks/useScrollSpy";
 
 export default function App() {
   const [currentHash, setCurrentHash] = useState(window.location.hash);
-  
+
   // Initialize ScrollSpy
-  useScrollSpy(["main", "about", "experience", "projects", "skills", "socials"]);
+  useScrollSpy([
+    "main",
+    "about",
+    "experience",
+    "projects",
+    "skills",
+    "socials",
+  ]);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -194,12 +201,14 @@ export default function App() {
   if (showBlog) {
     return (
       <ChatProvider>
-         <div className="bg-bg-4 text-text-1 min-h-screen font-mono selection:bg-accent-2 selection:text-bg-4">
-            <BlogSection onExit={() => {
-               window.location.hash = "";
-            }} />
-            <Chat />
-         </div>
+        <div className="bg-bg-4 text-text-1 min-h-screen font-mono selection:bg-accent-2 selection:text-bg-4">
+          <BlogSection
+            onExit={() => {
+              window.location.hash = "";
+            }}
+          />
+          <Chat />
+        </div>
       </ChatProvider>
     );
   }
@@ -207,7 +216,6 @@ export default function App() {
   return (
     <ChatProvider>
       <div className="bg-bg-4 text-text-1 min-h-screen font-mono selection:bg-accent-2 selection:text-bg-4">
-
         <Header />
 
         <div className="container mx-auto px-4 py-8 pt-24 max-w-4xl">
@@ -242,7 +250,7 @@ export default function App() {
             <Skills />
           </CollapsibleSection>
 
-          <section id="socials" className="mt-16 mb-0 pt-16 -mt-16">
+          <section id="#socials" className="mt-16 mb-0 pt-16 -mt-16">
             <RevealOnScroll>
               <BlurReveal>
                 <h2 className="text-2xl font-bold mb-8">Socials</h2>
