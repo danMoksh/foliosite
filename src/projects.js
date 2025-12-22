@@ -183,7 +183,7 @@ class Experience {
 
 export const experiences = [
   new Experience(
-    "Mobile Cafe, Jayendraganj",
+    "Mobile Cafe, Gwalior",
     "Systems Specialist",
     [
       "Performed advanced Android system modifications using Linux-based tools and ADB for bootloader unlocking, root privilege escalation, and custom ROM deployment.",
