@@ -137,7 +137,7 @@ const BackToTopButton = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 w-10 h-10 bg-transparent border border-accent-1 text-accent-1 flex items-center justify-center transition-all z-50 hover:bg-accent-1/10 hover:text-text-1 active:translate-y-0.5"
+          className="fixed bottom-6 right-6 w-10 h-10 bg-black border border-accent-1 text-accent-1 flex items-center justify-center transition-all z-50 hover:bg-accent-1/10 hover:text-text-1 active:translate-y-0.5"
           aria-label="Back to top"
         >
           <svg
@@ -192,14 +192,14 @@ export default function App() {
   // Handle initial path and hash on mount
   useEffect(() => {
     // Handle path-based routing (e.g. /about)
-    const path = window.location.pathname.replace('/', '');
-    const hash = window.location.hash.replace('#', '');
-    
+    const path = window.location.pathname.replace("/", "");
+    const hash = window.location.hash.replace("#", "");
+
     // Priority: Hash > Path (except root)
-    const targetId = hash || (path === 'blog' ? 'blog' : path);
+    const targetId = hash || (path === "blog" ? "blog" : path);
 
     if (targetId) {
-      if (targetId === 'blog') {
+      if (targetId === "blog") {
         window.scrollTo(0, 0); // Blog is a separate view
         return;
       }
@@ -208,7 +208,7 @@ export default function App() {
       setTimeout(() => {
         const element = document.getElementById(targetId);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({ behavior: "smooth" });
         }
       }, 100);
     }
