@@ -51,7 +51,7 @@ export default function Hero() {
     let lastMouseY = 0;
 
     const updateGlow = () => {
-      const spans = preElement.querySelectorAll(".hash-glow");
+      const spans = preElement.querySelectorAll(".glow-char");
       const rect = preElement.getBoundingClientRect();
 
       spans.forEach((span) => {
@@ -59,30 +59,44 @@ export default function Hero() {
         const spanX = spanRect.left - rect.left + spanRect.width / 2;
         const spanY = spanRect.top - rect.top + spanRect.height / 2;
 
-        const distance = Math.sqrt(
+        const distanceToCursor = Math.sqrt(
           Math.pow(lastMouseX - spanX, 2) + Math.pow(lastMouseY - spanY, 2)
         );
 
-        const maxDistance = 60; // Reduced from 80 for better performance
-        const intensity = Math.max(0, 1 - distance / maxDistance);
+        let intensity = 0;
+
+        // Cursor glow
+        const cursorMaxDistance = 60;
+        if (distanceToCursor < cursorMaxDistance) {
+          const cursorIntensity = Math.max(0, 1 - distanceToCursor / cursorMaxDistance);
+          intensity = Math.max(intensity, cursorIntensity);
+        }
 
         if (intensity > 0.1) {
-          // Simplified glow - single text-shadow only
-          span.style.textShadow = `0 0 ${10 * intensity}px var(--accent-1)`;
-          span.style.filter = `brightness(${1 + intensity * 0.5})`;
+          span.style.textShadow = `0 0 ${15 * intensity}px var(--accent-1), 0 0 ${5 * intensity}px #ffffff`;
+          span.style.filter = `brightness(${1 + intensity * 0.8})`;
+          span.style.color = "var(--accent-1)";
         } else {
           span.style.textShadow = "";
           span.style.filter = "";
+          span.style.color = "";
+        }
+
+        // Drop animation trigger
+        if (distanceToCursor < 15 && !span.classList.contains("dropping")) {
+          span.classList.add("dropping");
+          setTimeout(() => span.classList.remove("dropping"), 2000);
         }
       });
     };
 
     const handleMouseMove = (e) => {
       const rect = preElement.getBoundingClientRect();
-      lastMouseX = e.clientX - rect.left;
-      lastMouseY = e.clientY - rect.top;
+      const clientX = e.touches && e.touches.length > 0 ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches && e.touches.length > 0 ? e.touches[0].clientY : e.clientY;
+      lastMouseX = clientX - rect.left;
+      lastMouseY = clientY - rect.top;
 
-      // Use RAF to throttle updates
       if (!rafId) {
         rafId = requestAnimationFrame(() => {
           updateGlow();
@@ -96,20 +110,27 @@ export default function Hero() {
         cancelAnimationFrame(rafId);
         rafId = null;
       }
-      const spans = preElement.querySelectorAll(".hash-glow");
+      const spans = preElement.querySelectorAll(".glow-char");
       spans.forEach((span) => {
         span.style.filter = "";
         span.style.textShadow = "";
+        span.style.color = "";
       });
     };
 
     preElement.addEventListener("mousemove", handleMouseMove);
     preElement.addEventListener("mouseleave", handleMouseLeave);
+    preElement.addEventListener("touchmove", handleMouseMove, { passive: true });
+    preElement.addEventListener("touchstart", handleMouseMove, { passive: true });
+    preElement.addEventListener("touchend", handleMouseLeave);
 
     return () => {
       if (rafId) cancelAnimationFrame(rafId);
       preElement.removeEventListener("mousemove", handleMouseMove);
       preElement.removeEventListener("mouseleave", handleMouseLeave);
+      preElement.removeEventListener("touchmove", handleMouseMove);
+      preElement.removeEventListener("touchstart", handleMouseMove);
+      preElement.removeEventListener("touchend", handleMouseLeave);
     };
   }, []);
 
@@ -128,36 +149,52 @@ export default function Hero() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const asciiArt = `##     ##  #######  ##    ##  ######  ##     ## 
-###   ### ##     ## ##   ##  ##    ## ##     ## 
-#### #### ##     ## ##  ##   ##       ##     ## 
-## ### ## ##     ## #####     ######  ######### 
-##     ## ##     ## ##  ##         ## ##     ## 
-##     ## ##     ## ##   ##  ##    ## ##     ## 
-##     ##  #######  ##    ##  ######  ##     ## 
+  const asciiArt = `███╗   ███╗  ██████╗  ██╗  ██╗ ███████╗ ██╗  ██╗
+████╗ ████║ ██╔═══██╗ ██║ ██╔╝ ██╔════╝ ██║  ██║
+██╔████╔██║ ██║   ██║ █████╔╝  ███████╗ ███████║
+██║╚██╔╝██║ ██║   ██║ ██╔═██╗  ╚════██║ ██╔══██║
+██║ ╚═╝ ██║ ╚██████╔╝ ██║  ██╗ ███████║ ██║  ██║
+╚═╝     ╚═╝  ╚═════╝  ╚═╝  ╚═╝ ╚══════╝ ╚═╝  ╚═╝
 
-########     ###    ##    ## ########   #######  ######## #### ##    ##    ###    
-##     ##   ## ##   ###   ## ##     ## ##     ##    ##     ##   ##  ##    ## ##   
-##     ##  ##   ##  ####  ## ##     ## ##     ##    ##     ##    ####    ##   ##  
-##     ## ##     ## ## ## ## ##     ## ##     ##    ##     ##     ##    ##     ## 
-##     ## ######### ##  #### ##     ## ##     ##    ##     ##     ##    ######### 
-##     ## ##     ## ##   ### ##     ## ##     ##    ##     ##     ##    ##     ## 
-########  ##     ## ##    ## ########   #######     ##    ####    ##    ##     ##`;
+██████╗   █████╗  ███╗   ██╗ ██████╗   ██████╗  ████████╗ ██╗ ██╗   ██╗  █████╗ 
+██╔══██╗ ██╔══██╗ ████╗  ██║ ██╔══██╗ ██╔═══██╗ ╚══██╔══╝ ██║ ╚██╗ ██╔╝ ██╔══██╗
+██║  ██║ ███████║ ██╔██╗ ██║ ██║  ██║ ██║   ██║    ██║    ██║  ╚████╔╝  ███████║
+██║  ██║ ██╔══██║ ██║╚██╗██║ ██║  ██║ ██║   ██║    ██║    ██║   ╚██╔╝   ██╔══██║
+██████╔╝ ██║  ██║ ██║ ╚████║ ██████╔╝ ╚██████╔╝    ██║    ██║    ██║    ██║  ██║
+╚═════╝  ╚═╝  ╚═╝ ╚═╝  ╚═══╝ ╚═════╝   ╚═════╝     ╚═╝    ╚═╝    ╚═╝    ╚═╝  ╚═╝`;
 
   return (
     <section className="py-20">
-      <div className="overflow-hidden mb-8">
+      <div className="overflow-hidden mb-8 relative">
+        <style>
+          {`
+            @keyframes dropFade {
+              0% { transform: translateY(0) scale(1); opacity: 1; }
+              100% { transform: translateY(80px) scale(0.5); opacity: 0; }
+            }
+            .dropping {
+              animation: dropFade 1s cubic-bezier(0.25, 1, 0.5, 1) forwards !important;
+              pointer-events: none;
+            }
+          `}
+        </style>
         <pre
           ref={preRef}
-          className="text-accent-1 font-mono leading-none text-[0.35rem] xs:text-[0.4rem] sm:text-[0.5rem] md:text-[0.6rem] lg:text-[0.7rem] whitespace-pre select-none"
+          className="text-accent-1 font-mono leading-none text-[0.35rem] xs:text-[0.4rem] sm:text-[0.5rem] md:text-[0.6rem] lg:text-[0.7rem] whitespace-pre select-none relative"
         >
           {isMobile
             ? asciiArt
-            : asciiArt.split("").map((char, index) => (
-                <span key={index} className={char === "#" ? "hash-glow" : ""}>
-                  {char}
-                </span>
-              ))}
+            : asciiArt.split("").map((char, index) => {
+                if (char === "\n") return "\n";
+                return (
+                  <span 
+                    key={index} 
+                    className={char !== " " ? "glow-char inline-block transition-all duration-75" : "inline-block"}
+                  >
+                    {char}
+                  </span>
+                );
+              })}
         </pre>
       </div>
       <p className="text-text-3 mb-8 max-w-2xl">
