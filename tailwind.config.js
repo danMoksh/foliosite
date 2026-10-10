@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         mono: ['var(--font)', 'monospace'],
+        departure: ['"Departure Mono"', 'monospace'],
       },
       colors: {
         // Monochrome TUI Colors mapped to CSS variables

@@ -1,3 +1,4 @@
+import CountdownOverlay from "./components/CountdownOverlay";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
@@ -165,6 +166,9 @@ import BlogSection from "./components/BlogSection";
 import { useScrollSpy } from "./hooks/useScrollSpy";
 
 export default function App() {
+  const [showCountdown, setShowCountdown] = useState(
+    new Date().getTime() < new Date('2026-10-13T00:00:00').getTime()
+  );
   const [currentHash, setCurrentHash] = useState(window.location.hash);
 
   // Initialize ScrollSpy
@@ -213,6 +217,10 @@ export default function App() {
       }, 100);
     }
   }, []);
+
+  if (showCountdown) {
+    return <CountdownOverlay onComplete={() => setShowCountdown(false)} />;
+  }
 
   const showBlog = currentHash === "#blog";
 
